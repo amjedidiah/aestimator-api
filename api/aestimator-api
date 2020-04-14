@@ -3,7 +3,7 @@ info:
   version: 1
   title: aestimator-api
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://aestimator-api.herokuapp.com'
 paths:
   /user:
     get:
