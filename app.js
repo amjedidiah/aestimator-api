@@ -35,9 +35,8 @@ app.use(
         tokens.url(req, res),
         tokens.status(req, res),
         Math.round(tokens["response-time"](req, res)).toString().length === 1
-          ? `0${Math.round(tokens["response-time"](req, res))}`
-          : Math.round(tokens["response-time"](req, res)),
-        "ms",
+          ? `0${Math.round(tokens["response-time"](req, res))}ms`
+          : `${Math.round(tokens["response-time"](req, res))}ms`,
       ].join(" "),
     { stream: accessLogStream }
   )
