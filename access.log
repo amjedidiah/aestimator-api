@@ -4,3 +4,8 @@ GET /api/v1/on-covid-19/logs 200 12ms
 GET /api/v1/on-covid-19/logs 200 10ms
 GET /api/v1/on-covid-19/logs 200 06ms
 GET /api/v1/on-covid-19/logs 200 86ms
+GET /api/v1/on-covid-19/logs 200 16ms
+GET /api/v1/on-covid-19/logs 200 12ms
+GET /api/v1/on-covid-19/logs 200 24ms
+GET /api/v1/on-covid-19/logs 200 87ms
+GET /api/v1/on-covid-19/logs 200 19ms
