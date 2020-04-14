@@ -26,31 +26,14 @@ router.post("/xml", ({ body }, res) => {
 
 // Endpoint for Log file
 router.get("/logs", (req, res) => {
-  async function processLineByLine() {
-    const fileStream = fs.createReadStream(
-        path.join(__dirname + "/../../../", "access.log"),
-        { encoding: "utf8" }
-      ),
-      rl = readline.createInterface({
-        input: fileStream,
-        crlfDelay: Infinity,
-      });
-
-    let output = [];
-    // Note: we use the crlfDelay option to recognize all instances of CR LF
-    // ('\r\n') in input.txt as a single line break.
-
-    for await (const line of rl) {
-      // Each line in input.txt will be successively available here as `line`.
-      output.push(line);
+  fs.readFile(
+    path.join(__dirname + "/../../../", "access.log"),
+    "utf8",
+    (err, data) => {
+      if (err) throw err;
+      res.header("Content-Type", "text/plain; charset=utf-8").send(data);
     }
-
-    res
-      .header("Content-Type", "text/plain; charset=utf-8")
-      .send(output.join("\n"));
-  }
-
-  processLineByLine();
+  );
 });
 
 module.exports = router;
