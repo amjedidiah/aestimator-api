@@ -19,7 +19,7 @@ router.post("/json", ({ body }, res) => res.json(estimator(body)));
 
 // Endpoint for XML response
 router.post("/xml", ({ body }, res) => {
-  res.contentType("text/xml").send(js2xmlparser.parse("data", estimator(body)));
+  res.contentType("application/xml").send(js2xmlparser.parse("data", estimator(body)));
 });
 
 // Endpoint for Log file
