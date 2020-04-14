@@ -6,3 +6,7 @@ GET /api/v1/on-covid-19/logs 200 13.086 ms
 GET /api/v1/on-covid-19/logs 200 3.284 ms
 GET /api/v1/on-covid-19/logs 200 6.543 ms
 GET /api/v1/on-covid-19/logs 200 14.415 ms
+GET /api/v1/on-covid-19/logs 200 Math.floor(11.141 ms)
+GET /api/v1/on-covid-19/logs 200 Math.floor(10.890 ms)
+GET /api/v1/on-covid-19/logs 200 15.858 ms
+GET /api/v1/on-covid-19/logs 200 15.844 ms

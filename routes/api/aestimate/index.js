@@ -20,7 +20,7 @@ router.post("/json", ({ body }, res) => res.json(estimator(body)));
 // Endpoint for XML response
 router.post("/xml", ({ body }, res) =>
   res
-    .writeHead("Content-Type", "text/xml")
+    .set("Content-Type", "text/xml")
     .send(js2xmlparser.parse("output", estimator(body)))
 );
 

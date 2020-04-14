@@ -27,7 +27,9 @@ const accessLogStream = fs.createWriteStream(
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan(':method :url :status :response-time ms', { stream: accessLogStream }));
+app.use(
+  morgan(":method :url :status :response-time ms", { stream: accessLogStream })
+);
 app.use(routes); // Use defined Routes
 
 // App listen and port config
