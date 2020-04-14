@@ -28,7 +28,17 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
-  morgan(":method :url :status :response-time ms", { stream: accessLogStream })
+  morgan(
+    (tokens, req, res) =>
+      [
+        tokens.method(req, res),
+        tokens.url(req, res),
+        tokens.status(req, res),
+        Math.floor(tokens["response-time"](req, res)),
+        "ms",
+      ].join(" "),
+    { stream: accessLogStream }
+  )
 );
 app.use(routes); // Use defined Routes
 
