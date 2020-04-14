@@ -18,11 +18,11 @@ router.post("/", ({ body }, res) => res.json(estimator(body)));
 router.post("/json", ({ body }, res) => res.json(estimator(body)));
 
 // Endpoint for XML response
-router.post("/xml", ({ body }, res) =>
+router.post("/xml", ({ body }, res) => {
   res
     .set("Content-Type", "text/xml")
-    .send(js2xmlparser.parse("output", estimator(body)))
-);
+    .send(js2xmlparser.parse("data", estimator(body)));
+});
 
 // Endpoint for Log file
 router.get("/logs", (req, res) => {
