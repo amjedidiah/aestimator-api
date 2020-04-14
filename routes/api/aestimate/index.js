@@ -41,9 +41,7 @@ router.get("/logs", (req, res) => {
 
     for await (const line of rl) {
       // Each line in input.txt will be successively available here as `line`.
-      output.push(
-        line.replace(" ms", "ms").replace("54 - ", "").replace("0 - ", "")
-      );
+      output.push(line);
     }
 
     res.set("Content-Type", "text/plain").send(output.join("\n"));
