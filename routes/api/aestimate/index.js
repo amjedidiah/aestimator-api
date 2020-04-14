@@ -44,9 +44,7 @@ router.get("/logs", (req, res) => {
       output.push(line);
     }
 
-    output = output.join("\n");
-
-    res.setHeader("Content-Type", "text/plain").send(output);
+    res.set("Content-Type", "text/plain").send(output.join("\n"));
   }
 
   processLineByLine();
