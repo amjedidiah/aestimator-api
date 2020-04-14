@@ -19,14 +19,17 @@ router.post("/json", ({ body }, res) => res.json(estimator(body)));
 
 // Endpoint for XML response
 router.post("/xml", ({ body }, res) => {
-  res.contentType("application/xml").send(js2xmlparser.parse("data", estimator(body)));
+  res
+    .contentType("application/xml")
+    .send(js2xmlparser.parse("data", estimator(body)));
 });
 
 // Endpoint for Log file
 router.get("/logs", (req, res) => {
   async function processLineByLine() {
     const fileStream = fs.createReadStream(
-        path.join(__dirname + "/../../../", "access.log")
+        path.join(__dirname + "/../../../", "access.log"),
+        { encoding: "utf8" }
       ),
       rl = readline.createInterface({
         input: fileStream,
