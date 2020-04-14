@@ -12,10 +12,7 @@ const fs = require("fs"),
 const db = require("../../../config/db");
 
 // Endpoint for default JSON response
-router.post("/", ({ body }, res) => {
-  console.log(body);
-  res.json(estimator(body));
-});
+router.post("/", ({ body }, res) => res.json(estimator(body)));
 
 // Endpoint for JSON response
 router.post("/json", ({ body }, res) => res.json(estimator(body)));
