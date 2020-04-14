@@ -20,7 +20,7 @@ router.post("/json", ({ body }, res) => res.json(estimator(body)));
 // Endpoint for XML response
 router.post("/xml", ({ body }, res) =>
   res
-    .set("Content-Type", "text/xml")
+    .writeHead("Content-Type", "text/xml")
     .send(js2xmlparser.parse("output", estimator(body)))
 );
 
@@ -44,7 +44,14 @@ router.get("/logs", (req, res) => {
       output.push(line);
     }
 
-    res.set("Content-Type", "text/plain").send(output.join("\n"));
+    output = output.join("\n");
+
+    res
+      .writeHead(200, {
+        "Content-Length": output.length,
+        "Content-Type": "text/plain",
+      })
+      .send(output);
   }
 
   processLineByLine();
