@@ -1,15 +1,9 @@
 // Node Modules
 const fs = require("fs"),
   path = require("path"),
-  readline = require("readline"),
   router = require("express").Router(),
-  crypto = require("crypto"),
   js2xmlparser = require("js2xmlparser"),
-  estimator = require("./src/estimator"),
-  secret = "aestimator";
-
-// Get DB from Config
-const db = require("../../../config/db");
+  estimator = require("./src/estimator");
 
 // Endpoint for default JSON response
 router.post("/", ({ body }, res) => res.json(estimator(body)));
